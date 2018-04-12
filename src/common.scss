@@ -1,0 +1,75 @@
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+
+// Colors.
+$black: rgb(41, 41, 41);
+$white: #f4f4f4;
+$gray: #dedede;
+$green: #bada55;
+$red: orangered;
+
+/* Customize the label (the container) */
+.block-check {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  height: 1em;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  &__input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+  }
+
+  &__mark {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 25px;
+	width: 25px;
+	background-color: transparent;
+	border: solid 2px black;
+	&:after {
+	  content: "";
+	  position: absolute;
+	  display: none;
+	  background-color: rgba(0,0,0,0.3);
+	  width: 70%;
+	  height: 70%;
+	  top: 15%;
+	  left: 16%;
+	  transition: all ease .2s;
+
+
+	}
+
+  }
+
+  &:hover > &__mark {
+  	&:after {
+		background-color: rgba(0,0,0,0.5);
+	  	display: block;
+	 	transform: scale(0.5)
+  	}
+  }
+
+  &__input:checked ~ &__mark {
+	background-color: transparent;
+	&:after {
+	  display: block;
+	  background-color: #000;
+
+	}
+  }
+}
